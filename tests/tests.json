@@ -3,7 +3,7 @@
     "description": "Cellranger ATAC Count workflow test",
     "metrics_calculate": "calculate.sh",
     "metrics_compare": "compare.sh",
-    "output_metrics_dir": "/.mounts/labs/gsi/testdata/cellranger_atac_count/output_metrics/${project.version}",
+    "output_metrics_dir": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/output_metrics/${project.version}",
     "parameters": {
       "wdl_options": {
         "write_to_cache": false,
@@ -13,13 +13,13 @@
   },
   "tests": [
     {
-      "id": "cellranger_atac_count_test_01",
+      "id": "cellrangerAtacCount_test_01",
       "parameters": {
         "wdl_inputs": {
-          "cellranger_atac_count.runID": "atac_hgmm_500_v1_S1",
-          "cellranger_atac_count.samplePrefix": "atac_hgmm_500_v1",
-          "cellranger_atac_count.fastqDirectory": "/.mounts/labs/gsiprojects/gsi/10XSingleCellATAC/atac_hgmm_500_v1_fastqs",
-          "cellranger_atac_count.referenceDirectory": "/scratch2/users/amosquera/refdata-cellranger-atac-GRCh38-1.1.0"
+          "cellrangerAtacCount.runID": "atac_hgmm_500_v1_S1",
+          "cellrangerAtacCount.samplePrefix": "atac_hgmm_500_v1",
+          "cellrangerAtacCount.fastqDirectory": "/.mounts/labs/gsiprojects/gsi/10XSingleCellATAC/atac_hgmm_500_v1_fastqs",
+          "cellrangerAtacCount.referenceDirectory": "/scratch2/users/amosquera/refdata-cellranger-atac-GRCh38-1.1.0"
         }
       }
     }

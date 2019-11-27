@@ -1,4 +1,4 @@
-# cellranger_atac_count
+# cellrangerAtacCount
 
 Workflow to generate single-cell accessibility counts for a single library.
 
@@ -8,7 +8,7 @@ Workflow to generate single-cell accessibility counts for a single library.
 
 ### Cromwell
 ```
-java -jar cromwell.jar run cellranger_atac_count.wdl --inputs inputs.json
+java -jar cromwell.jar run cellrangerAtacCount.wdl --inputs inputs.json
 ```
 
 ### Inputs

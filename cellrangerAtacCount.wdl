@@ -1,6 +1,6 @@
 version 1.0
 
-workflow cellranger_atac_count {
+workflow cellrangerAtacCount {
   input {
     String runID
     String fastqDirectory
