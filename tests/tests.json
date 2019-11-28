@@ -19,9 +19,10 @@
           "cellrangerAtacCount.runID": "atac_hgmm_500_v1_S1",
           "cellrangerAtacCount.samplePrefix": "atac_hgmm_500_v1",
           "cellrangerAtacCount.fastqDirectory": "/.mounts/labs/gsiprojects/gsi/10XSingleCellATAC/atac_hgmm_500_v1_fastqs",
-          "cellrangerAtacCount.referenceDirectory": "/scratch2/users/amosquera/refdata-cellranger-atac-GRCh38-1.1.0"
+          "cellrangerAtacCount.referenceDirectory": "/.mounts/labs/gsi/modulator/sw/data/cellranger-atac-genome-grch38-1.1.0"
         }
       }
     }
   ]
 }
+
