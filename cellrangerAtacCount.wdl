@@ -3,17 +3,23 @@ version 1.0
 workflow cellrangerAtacCount {
   input {
     String runID
-    String fastqDirectory
+    Array[File] fastqs
     String samplePrefix
     String referenceDirectory
     String? localCores
-    String? localMem
+    Int? localMem
   }
+
+  call symlinkFastqs {
+      input:
+        samplePrefix = samplePrefix,
+        fastqs = fastqs
+    }
 
   call count {
     input:
       runID = runID,
-      fastqDirectory = fastqDirectory,
+      fastqDirectory = symlinkFastqs.fastqDirectory,
       samplePrefix = samplePrefix,
       referenceDirectory = referenceDirectory,
       localCores = localCores,
@@ -37,7 +43,7 @@ workflow cellrangerAtacCount {
 
   parameter_meta {
     runID: "A unique run ID string."
-    fastqDirectory: "Sample name (FASTQ file prefix). Can take multiple comma-separated values."
+    fastqDirectory: "Path to folder containing symlinked fastq files."
     samplePrefix: "Path to folder containing fastq files."
     referenceDirectory: "Path to the Cell Ranger ATAC compatible geneome reference."
     localCores: "Restricts cellranger-atac to use specified number of cores to execute pipeline stages. By default, cellranger-atac will use all of the cores available on your system."
@@ -52,6 +58,35 @@ workflow cellrangerAtacCount {
   }
 }
 
+task symlinkFastqs {
+  input {
+    Array[File] fastqs
+    String? samplePrefix
+  }
+
+  command <<<
+    mkdir ~{samplePrefix}
+    while read line ; do
+      ln -s $line ~{samplePrefix}/$(basename $line)
+    done < ~{write_lines(fastqs)}
+    echo $PWD/~{samplePrefix}
+  >>>
+
+  output {
+     String fastqDirectory = read_string(stdout())
+  }
+
+  parameter_meta {
+    fastqs: "Array of input fastqs."
+  }
+
+  meta {
+    output_meta: {
+      fastqDirectory: "Path to folder containing symlinked fastq files."
+    }
+  }
+}
+
 task count {
   input {
     String? modules = "cellranger-atac"
@@ -61,7 +96,8 @@ task count {
     String samplePrefix
     String referenceDirectory
     String? localCores
-    String? localMem = "2"
+    Int? localMem = 64
+    Int timeout = 24
   }
 
   command <<<
@@ -73,49 +109,46 @@ task count {
     ~{"--localcores"} "~{localCores}" \
     ~{"--localmem"} "~{localMem}"
 
-    # zip peak bc matrices
-    zip -r peak_bc_matrix \
-    outs/raw_peak_bc_matrix \
-    outs/filtered_peak_bc_matrix
+    # compress folders
+    tar cf - \
+    ~{runID}/outs/raw_peak_bc_matrix \
+    ~{runID}/outs/filtered_peak_bc_matrix | gzip --no-name > peak_bc_matrix.tar.gz
 
-    # zip analysis
-    zip -r analysis \
-    outs/analysis
+    tar cf - ~{runID}/outs/analysis | gzip --no-name > analysis.tar.gz
 
-    # zip filtered tf bc matrix
-    zip -r filtered_tf_bc_matrix \
-    outs/filtered_tf_bc_matrix
+    tar cf - \
+    ~{runID}/outs/filtered_tf_bc_matrix | gzip --no-name > filtered_tf_bc_matrix.tar.gz
 
-    # zip matrices
-    zip -r matrices_h5 \
-    outs/raw_peak_bc_matrix.h5 \
-    outs/filtered_peak_bc_matrix.h5 \
-    outs/filtered_tf_bc_matrix.h5
+    tar cf - \
+    ~{runID}/outs/raw_peak_bc_matrix.h5 \
+    ~{runID}/outs/filtered_peak_bc_matrix.h5 \
+    ~{runID}/outs/filtered_tf_bc_matrix.h5 | gzip --no-name > matrices_h5.tar.gz
   >>>
 
   runtime {
-    memory: "~{localMem}"
+    memory: "~{localMem} GB"
     modules: "~{modules}"
+    timeout: "~{timeout}"
   }
 
   output {
-    File singleCell = "outs/singlecell.csv"
-    File possortedGenomeBam = "outs/possorted_bam.bam"
-    File possortedGenomeBamIndex = "outs/possorted_bam.bam.bai"
-    File peaks = "outs/peaks.bed"
-    File peakBcMatrix = "peak_bc_matrix.zip"
-    File analysis = "analysis.zip"
-    File fragments = "outs/fragments.tsv.gz"
-    File fragmentsIndex = "outs/fragments.tsv.gz.tbi"
-    File filteredTfBcMatrix = "filtered_tf_bc_matrix.zip"
-    File matricesH5 = "matrices_h5.zip"
-    File cloupe = "outs/cloupe.cloupe"
-    File summary = "outs/summary.csv"
+    File singleCell = "~{runID}/outs/singlecell.csv"
+    File possortedGenomeBam = "~{runID}/outs/possorted_bam.bam"
+    File possortedGenomeBamIndex = "~{runID}/outs/possorted_bam.bam.bai"
+    File peaks = "~{runID}/outs/peaks.bed"
+    File peakBcMatrix = "peak_bc_matrix.tar.gz"
+    File analysis = "analysis.tar.gz"
+    File fragments = "~{runID}/outs/fragments.tsv.gz"
+    File fragmentsIndex = "~{runID}/outs/fragments.tsv.gz.tbi"
+    File filteredTfBcMatrix = "filtered_tf_bc_matrix.tar.gz"
+    File matricesH5 = "matrices_h5.tar.gz"
+    File cloupe = "~{runID}/outs/cloupe.cloupe"
+    File summary = "~{runID}/outs/summary.csv"
   }
 
   parameter_meta {
     runID: "A unique run ID string."
-    fastqDirectory: "Sample name (FASTQ file prefix). Can take multiple comma-separated values."
+    fastqDirectory: "Path to folder containing symlinked fastq files."
     samplePrefix: "Path to folder containing fastq files."
     referenceDirectory: "Path to the Cell Ranger ATAC compatible geneome reference."
     localCores: "Restricts cellranger-atac to use specified number of cores to execute pipeline stages. By default, cellranger-atac will use all of the cores available on your system."
