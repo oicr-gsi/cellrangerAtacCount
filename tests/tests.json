@@ -3,7 +3,7 @@
     "description": "Cellranger ATAC Count workflow test",
     "metrics_calculate": "calculate.sh",
     "metrics_compare": "compare.sh",
-    "output_metrics_dir": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/output_metrics/${project.version}",
+    "output_metrics_dir": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/output_metrics/1.0",
     "parameters": {
       "wdl_options": {
         "write_to_cache": false,
@@ -13,12 +13,32 @@
   },
   "tests": [
     {
-      "id": "cellrangerAtacCount_test_01",
+      "id": "atac_hgmm_500_v1_S1-test",
       "parameters": {
         "wdl_inputs": {
           "cellrangerAtacCount.runID": "atac_hgmm_500_v1_S1",
           "cellrangerAtacCount.samplePrefix": "atac_hgmm_500_v1",
-          "cellrangerAtacCount.fastqDirectory": "/.mounts/labs/gsiprojects/gsi/10XSingleCellATAC/atac_hgmm_500_v1_fastqs",
+          "cellrangerAtacCount.fastqs": [
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_I1_001.fastq.gz",
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R1_001.fastq.gz",
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R2_001.fastq.gz",
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R3_001.fastq.gz"
+          ],
+          "cellrangerAtacCount.referenceDirectory": "/.mounts/labs/gsi/modulator/sw/data/cellranger-atac-genome-grch38-1.1.0"
+        }
+      }
+    },
+    {
+      "id": "atac_hgmm_500_v1_S1-test2",
+      "parameters": {
+        "wdl_inputs": {
+          "cellrangerAtacCount.runID": "atac_hgmm_500_v1_S1",
+          "cellrangerAtacCount.samplePrefix": "atac_hgmm_500_v1",
+          "cellrangerAtacCount.fastqs": [
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R2_001.fastq.gz",
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R1_001.fastq.gz",
+            "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R3_001.fastq.gz"
+          ],
           "cellrangerAtacCount.referenceDirectory": "/.mounts/labs/gsi/modulator/sw/data/cellranger-atac-genome-grch38-1.1.0"
         }
       }

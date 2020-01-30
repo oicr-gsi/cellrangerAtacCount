@@ -17,7 +17,7 @@ java -jar cromwell.jar run cellrangerAtacCount.wdl --inputs inputs.json
 Parameter|Value|Description
 ---|---|---
 `runID`|String|A unique run ID string.
-`fastqDirectory`|String|Sample name (FASTQ file prefix). Can take multiple comma-separated values.
+`fastqs`|Array[File]|Array of input fastqs.
 `samplePrefix`|String|Path to folder containing fastq files.
 `referenceDirectory`|String|Path to the Cell Ranger ATAC compatible geneome reference.
 
@@ -26,7 +26,7 @@ Parameter|Value|Description
 Parameter|Value|Default|Description
 ---|---|---|---
 `localCores`|String?|None|Restricts cellranger-atac to use specified number of cores to execute pipeline stages. By default, cellranger-atac will use all of the cores available on your system.
-`localMem`|String?|None|Restricts cellranger-atac to use specified amount of memory (in GB) to execute pipeline stages. By default, cellranger-atac will use 90% of the memory available on your system.
+`localMem`|Int?|None|Restricts cellranger-atac to use specified amount of memory (in GB) to execute pipeline stages. By default, cellranger-atac will use 90% of the memory available on your system.
 
 
 #### Optional task parameters:
@@ -34,6 +34,7 @@ Parameter|Value|Default|Description
 ---|---|---|---
 `count.modules`|String?|"cellranger-atac"|Environment module name to load before command execution.
 `count.cellranger_atac`|String?|"cellranger-atac"|
+`count.timeout`|Int|24|
 
 
 ### Outputs
