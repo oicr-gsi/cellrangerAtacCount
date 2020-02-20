@@ -8,6 +8,7 @@ workflow cellrangerAtacCount {
     String referenceDirectory
     String? localCores
     Int? localMem
+    Int? timeout
   }
 
   call symlinkFastqs {
@@ -23,7 +24,8 @@ workflow cellrangerAtacCount {
       samplePrefix = samplePrefix,
       referenceDirectory = referenceDirectory,
       localCores = localCores,
-      localMem = localMem
+      localMem = localMem,
+      timeout = timeout
   }
 
   output {
@@ -48,6 +50,7 @@ workflow cellrangerAtacCount {
     referenceDirectory: "Path to the Cell Ranger ATAC compatible geneome reference."
     localCores: "Restricts cellranger-atac to use specified number of cores to execute pipeline stages. By default, cellranger-atac will use all of the cores available on your system."
     localMem: "Restricts cellranger-atac to use specified amount of memory (in GB) to execute pipeline stages. By default, cellranger-atac will use 90% of the memory available on your system."
+    timeout: "Restricts cellranger-atac to run in the specified time budget."
   }
 
   meta {
@@ -102,7 +105,7 @@ task count {
     String referenceDirectory
     String? localCores
     Int? localMem = 64
-    Int timeout = 24
+    Int? timeout = 24
   }
 
   command <<<
@@ -158,6 +161,7 @@ task count {
     referenceDirectory: "Path to the Cell Ranger ATAC compatible geneome reference."
     localCores: "Restricts cellranger-atac to use specified number of cores to execute pipeline stages. By default, cellranger-atac will use all of the cores available on your system."
     localMem: "Restricts cellranger-atac to use specified amount of memory (in GB) to execute pipeline stages. By default, cellranger-atac will use 90% of the memory available on your system."
+    timeout: "Restricts cellranger-atac to run in the specified time budget."
     modules: "Environment module name to load before command execution."
   }
 

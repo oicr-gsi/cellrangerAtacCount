@@ -26,16 +26,14 @@ Parameter|Value|Description
 Parameter|Value|Default|Description
 ---|---|---|---
 `localCores`|String?|None|Restricts cellranger-atac to use specified number of cores to execute pipeline stages. By default, cellranger-atac will use all of the cores available on your system.
-`localMem`|Int?|None|Restricts cellranger-atac to use specified amount of memory (in GB) to execute pipeline stages. By default, cellranger-atac will use 90% of the memory available on your system.
-
+`localMem`|Int?|64|Restricts cellranger-atac to use specified amount of memory (in GB) to execute pipeline stages. By default, cellranger-atac will use 90% of the memory available on your system.
+`timeout`|Int?|168h|Restricts cellranger to run in the specified time budget.
 
 #### Optional task parameters:
 Parameter|Value|Default|Description
 ---|---|---|---
 `count.modules`|String?|"cellranger-atac"|Environment module name to load before command execution.
 `count.cellranger_atac`|String?|"cellranger-atac"|
-`count.timeout`|Int|24|
-
 
 ### Outputs
 
