@@ -1,0 +1,334 @@
+[
+    {
+        "arguments": {
+            "cellrangerAtacCount.count.cellranger_atac": null,
+            "cellrangerAtacCount.count.modules": null,
+            "cellrangerAtacCount.count.timeout": null,
+            "cellrangerAtacCount.fastqs": [
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_I1_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                },
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R1_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                },
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R2_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                },
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R3_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                }
+            ],
+            "cellrangerAtacCount.localCores": null,
+            "cellrangerAtacCount.localMem": null,
+            "cellrangerAtacCount.referenceDirectory": "/.mounts/labs/gsi/modulator/sw/data/cellranger-atac-genome-grch38-1.1.0",
+            "cellrangerAtacCount.runID": "atac_hgmm_500_v1_S1",
+            "cellrangerAtacCount.samplePrefix": "atac_hgmm_500_v1",
+            "cellrangerAtacCount.symlinkFastqs.mem": null
+        },
+        "description": "Cellranger ATAC Count workflow test",
+        "engineArguments": {},
+        "id": "atac_hgmm_500_v1_S1-test",
+        "metadata": {
+            "cellrangerAtacCount.analysis": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.cloupe": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.filteredTfBcMatrix": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.fragments": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.fragmentsIndex": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.matricesH5": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.peakBcMatrix": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.peaks": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.possortedGenomeBam": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.possortedGenomeBamIndex": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.singleCell": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.summary": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/output_metrics/1.0/atac_hgmm_500_v1_S1-test.metrics",
+                "type": "script"
+            }
+        ]
+    },
+    {
+        "arguments": {
+            "cellrangerAtacCount.count.cellranger_atac": null,
+            "cellrangerAtacCount.count.modules": null,
+            "cellrangerAtacCount.count.timeout": null,
+            "cellrangerAtacCount.fastqs": [
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R2_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                },
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R1_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                },
+                {
+                    "contents": {
+                        "configuration": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/input_data/atac_hgmm_500_v1_S1_L003_R3_001.fastq.gz",
+                        "externalIds": [
+                            {
+                                "id": "TEST",
+                                "provider": "TEST"
+                            }
+                        ]
+                    },
+                    "type": "EXTERNAL"
+                }
+            ],
+            "cellrangerAtacCount.localCores": null,
+            "cellrangerAtacCount.localMem": null,
+            "cellrangerAtacCount.referenceDirectory": "/.mounts/labs/gsi/modulator/sw/data/cellranger-atac-genome-grch38-1.1.0",
+            "cellrangerAtacCount.runID": "atac_hgmm_500_v1_S1",
+            "cellrangerAtacCount.samplePrefix": "atac_hgmm_500_v1",
+            "cellrangerAtacCount.symlinkFastqs.mem": null
+        },
+        "description": "Cellranger ATAC Count workflow test",
+        "engineArguments": {},
+        "id": "atac_hgmm_500_v1_S1-test2",
+        "metadata": {
+            "cellrangerAtacCount.analysis": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.cloupe": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.filteredTfBcMatrix": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.fragments": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.fragmentsIndex": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.matricesH5": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.peakBcMatrix": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.peaks": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.possortedGenomeBam": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.possortedGenomeBamIndex": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.singleCell": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            },
+            "cellrangerAtacCount.summary": {
+                "contents": [
+                    {
+                        "outputDirectory": "@SCRATCH@/@DATE@_Workflow_cellrangerAtacCount_atac_hgmm_500_v1_S1-test2_@JENKINSID@"
+                    }
+                ],
+                "type": "ALL"
+            }
+        },
+        "validators": [
+            {
+                "metrics_calculate": "@CHECKOUT@/tests/calculate.sh",
+                "metrics_compare": "@CHECKOUT@/tests/compare.sh",
+                "output_metrics": "/.mounts/labs/gsi/testdata/cellrangerAtacCount/output_metrics/1.0/atac_hgmm_500_v1_S1-test2.metrics",
+                "type": "script"
+            }
+        ]
+    }
+]
